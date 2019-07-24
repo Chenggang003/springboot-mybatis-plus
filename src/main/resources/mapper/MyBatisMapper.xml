@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springbootmybatis.web.mapper.MyBatisMapper">
+
+    <resultMap id="baseMap" type="com.example.springbootmybatis.web.po.DemoPO">
+        <result property="id" javaType="INTEGER" jdbcType="BIGINT" column="id" />
+        <result property="name" javaType="String" jdbcType="VARCHAR" column="name" />
+        <result property="msg" javaType="String" jdbcType="VARCHAR" column="mgs" />
+    </resultMap>
+
+    <sql id="baseSql">
+        id,name,msg
+    </sql>
+
+    <insert id="save" parameterType="com.example.springbootmybatis.web.po.DemoPO">
+        insert into t_demo(id,name,msg) values (#{id},#{name},#{msg})
+    </insert>
+</mapper>
